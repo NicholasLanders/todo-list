@@ -1,13 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List</title>
+        <link rel="stylesheet" href="src/style.css" />
+    </head>
+    <body>
+        <main>
+            <h1>
+                Good Afternoon! <br />
+                What is on taps for today?
+            </h1>
+            <!--TODO: Fix this up with a hidden checkbox and a span or something
+            of that sort hiding it-->
+            <div class="todo-item">
+                <input type="checkbox" />
+                <input class="todo-text" type="text" placeholder="Title" />
+            </div>
+        </main>
+        <aside>
+            <h2>My Lists</h2>
+        </aside>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
 </html>

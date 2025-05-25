@@ -20,11 +20,60 @@ h2 {
     text-align: center;
 }
 
+input {
+    outline: none;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    aside {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 25%;
+        height: 100vh;
+    }
+
+    main {
+        position: fixed;
+        left: 25%;
+        height: 100vh;
+        width: 70%;
+    }
+    .todo-item {
+        left: 5%;
+    }
+
+    h1 {
+        position: relative;
+        left: 10%;
+    }
+}
+
+aside {
+    background-color: var(--accent-color);
+    border-radius: 15px;
+}
+.list-item {
+    display: flex;
+    align-items: center;
+    background-color: beige;
+    border-radius: 15px;
+    width: 90%;
+    height: 5vh;
+    position: relative;
+    left: 5%;
+    font-size: var(--standard-font);
+}
+.list-text {
+    background-color: beige;
+    margin-left: 1%;
+    width: 90%;
+    font-size: var(--standard-font);
+}
+
 main {
-    position: fixed;
-    left: 20%;
-    height: 100vh;
-    width: 70%;
+    margin-top: 2rem;
     background-color: var(--main-color);
 }
 .todo-item {
@@ -32,14 +81,11 @@ main {
     align-items: center;
     gap: 0.5%;
     position: relative;
-    left: 5%;
     background-color: var(--accent-color);
     border-radius: 15px;
     height: 5vh;
 }
 .todo-text {
-    outline: none;
-    border: none;
     width: 90%;
     background-color: var(--accent-color);
     color: var(--font-color);
@@ -57,34 +103,6 @@ main {
 /* Over 92% support, so still a little iffy */
 .checkbox:has(input:checked) {
     background-color: white;
-}
-
-aside {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 20%;
-    height: 100vh;
-    background-color: var(--accent-color);
-}
-.list-item {
-    display: flex;
-    align-items: center;
-    background-color: beige;
-    border-radius: 15px;
-    width: 90%;
-    height: 5vh;
-    position: relative;
-    left: 5%;
-    font-size: var(--standard-font);
-}
-.list-text {
-    background-color: beige;
-    border: none;
-    outline: none;
-    margin-left: 1%;
-    width: 90%;
-    font-size: var(--standard-font);
 }
 
 input[type="checkbox"] {

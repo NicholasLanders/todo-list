@@ -2,25 +2,13 @@
     --main-color: rgba(19, 19, 19, 255);
     --accent-color: rgba(37, 37, 37, 255);
     --font-color: rgba(229, 227, 232, 255);
+    --standard-font: 1.3rem;
     color: var(--font-color);
     font-family: "Poppins", sans-serif;
 }
 
 html {
     background-color: var(--main-color);
-}
-
-.todo-item {
-    position: relative;
-    left: 5%;
-}
-
-.todo-text {
-    outline: none;
-    border: none;
-    background-color: var(--main-color);
-    color: var(--font-color);
-    font-size: 1.3rem;
 }
 
 h1 {
@@ -39,6 +27,37 @@ main {
     width: 70%;
     background-color: var(--main-color);
 }
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5%;
+    position: relative;
+    left: 5%;
+    background-color: var(--accent-color);
+    border-radius: 15px;
+    height: 5vh;
+}
+.todo-text {
+    outline: none;
+    border: none;
+    width: 90%;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+    font-size: var(--standard-font);
+}
+.checkbox {
+    display: inline-block;
+    min-width: 1em;
+    min-height: 1em;
+    vertical-align: middle;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin-left: 1%;
+}
+/* Over 92% support, so still a little iffy */
+.checkbox:has(input:checked) {
+    background-color: white;
+}
 
 aside {
     position: fixed;
@@ -48,9 +67,26 @@ aside {
     height: 100vh;
     background-color: var(--accent-color);
 }
+.list-item {
+    display: flex;
+    align-items: center;
+    background-color: beige;
+    border-radius: 15px;
+    width: 90%;
+    height: 5vh;
+    position: relative;
+    left: 5%;
+    font-size: var(--standard-font);
+}
+.list-text {
+    background-color: beige;
+    border: none;
+    outline: none;
+    margin-left: 1%;
+    width: 90%;
+    font-size: var(--standard-font);
+}
 
 input[type="checkbox"] {
-    height: 2rem;
-    width: 2rem;
-    clip-path: circle(30% at 50% 50%);
+    display: none;
 }

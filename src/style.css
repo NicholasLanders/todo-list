@@ -55,15 +55,20 @@ main {
 }
 .todo-item {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5%;
     position: relative;
     background-color: var(--accent-color);
     border-radius: 15px;
-    height: 5vh;
+    height: 10vh;
+}
+.todo-top-row {
+    display: flex;
+    align-items: center;
 }
 .todo-text {
     width: 85%;
+    margin-left: 1%;
     background-color: var(--accent-color);
     color: var(--font-color);
     font-size: var(--standard-font);
@@ -80,6 +85,11 @@ main {
 /* Over 92% support, so still a little iffy */
 .checkbox:has(input:checked) {
     background-color: white;
+}
+input[type="date"] {
+    color: var(--font-color);
+    background-color: var(--accent-color);
+    margin-left: 1%;
 }
 
 input[type="checkbox"] {

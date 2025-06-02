@@ -2,6 +2,7 @@
     --main-color: rgba(19, 19, 19, 255);
     --accent-color: rgba(37, 37, 37, 255);
     --font-color: rgba(229, 227, 232, 255);
+    --standard-buffer: 2%;
     --standard-font: 1.3rem;
     color: var(--font-color);
     font-family: "Poppins", sans-serif;
@@ -13,6 +14,8 @@ html {
 
 h1 {
     text-align: center;
+    max-width: 90%;
+    margin-left: var(--standard-buffer);
 }
 
 h2 {
@@ -28,7 +31,9 @@ input {
 aside {
     background-color: var(--accent-color);
     border-radius: 15px;
-    width: 90%;
+    width: 95%;
+    margin-left: var(--standard-buffer);
+    padding-bottom: var(--standard-buffer);
 }
 .list-item {
     display: flex;
@@ -36,7 +41,7 @@ aside {
     background-color: beige;
     border-radius: 15px;
     width: 90%;
-    height: 5vh;
+    min-height: 5vh;
     position: relative;
     left: 5%;
     font-size: var(--standard-font);
@@ -50,8 +55,9 @@ aside {
 
 main {
     margin-top: 2rem;
+    margin-left: var(--standard-buffer);
     background-color: var(--main-color);
-    width: 90%;
+    width: 95%;
 }
 .todo-item {
     display: flex;
@@ -60,11 +66,12 @@ main {
     position: relative;
     background-color: var(--accent-color);
     border-radius: 15px;
-    height: 10vh;
+    padding-bottom: 1%;
 }
 .todo-top-row {
     display: flex;
     align-items: center;
+    margin-top: 1%;
 }
 .todo-text {
     width: 85%;
@@ -88,8 +95,12 @@ main {
 }
 input[type="date"] {
     color: var(--font-color);
-    background-color: var(--accent-color);
-    margin-left: 1%;
+    background-color: rgba(60, 60, 60, 1);
+    font-size: var(--standard-font);
+    width: 95%;
+    margin: 1%;
+    padding: 0.5%;
+    border-radius: 15px;
 }
 
 input[type="checkbox"] {
@@ -101,8 +112,9 @@ input[type="checkbox"] {
         position: fixed;
         left: 0;
         top: 0;
-        width: 25%;
+        width: 24%;
         height: 100vh;
+        margin-left: 0%;
     }
 
     main {
@@ -110,6 +122,7 @@ input[type="checkbox"] {
         left: 25%;
         height: 100vh;
         width: 70%;
+        margin-left: 0%;
     }
     .todo-item {
         left: 5%;
@@ -118,6 +131,7 @@ input[type="checkbox"] {
 
     h1 {
         position: relative;
-        left: 10%;
+        padding-left: 25%;
+        margin-left: 0%;
     }
 }

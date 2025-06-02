@@ -41,7 +41,7 @@ aside {
     background-color: beige;
     border-radius: 15px;
     width: 90%;
-    min-height: 5vh;
+    height: 30px;
     position: relative;
     left: 5%;
     font-size: var(--standard-font);
@@ -49,6 +49,8 @@ aside {
 .list-text {
     background-color: beige;
     margin-left: 4%;
+    margin-top: var(--standard-buffer);
+    margin-bottom: var(--standard-buffer);
     width: 90%;
     font-size: var(--standard-font);
 }

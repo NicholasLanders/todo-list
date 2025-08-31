@@ -68,7 +68,6 @@ main {
     position: relative;
     background-color: var(--accent-color);
     border-radius: 15px;
-    padding-bottom: 1%;
 }
 .todo-top-row {
     display: flex;
@@ -91,15 +90,30 @@ main {
     border-radius: 20px;
     margin-left: 1%;
 }
+
+.todo-item:has(.todo-text:placeholder-shown) .checkbox {
+    display: none;
+}
+.todo-item:has(.todo-text:placeholder-shown) input[type="date"] {
+    display: none;
+}
+.todo-item:has(.todo-text:placeholder-shown) .todo-text {
+    margin-bottom: 1%;
+}
 /* Over 92% support, so still a little iffy */
 .checkbox:has(input:checked) {
     background-color: white;
 }
+.checkbox:has(input:checked) + .todo-text:not(:placeholder-shown) {
+    text-decoration: line-through;
+}
+
 input[type="date"] {
     color: var(--font-color);
     background-color: rgba(60, 60, 60, 1);
     font-size: var(--standard-font);
-    width: 95%;
+    width: 15%;
+    min-width: 150px;
     margin: 1%;
     padding: 0.5%;
     border-radius: 15px;

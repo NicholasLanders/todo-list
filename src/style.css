@@ -68,6 +68,7 @@ main {
     position: relative;
     background-color: var(--accent-color);
     border-radius: 15px;
+    margin-bottom: 1%;
 }
 .todo-top-row {
     display: flex;

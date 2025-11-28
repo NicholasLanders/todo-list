@@ -10,6 +10,9 @@
     <body>
         <aside>
             <h2>My Lists</h2>
+            <div class="task-control">
+                <button class="new-button">New List</button>
+            </div>
             <div class="list-item">
                 <input class="list-text" type="text" placeholder="Title" />
             </div>
@@ -19,7 +22,14 @@
                 <span id="good-day-text">Good Day!</span><br />
                 What would you like to accomplish?
             </h1>
-            <button id="new-todo">New Task</button>
+            <div class="task-control">
+                <button class="new-button">New Task</button>
+                <label for="sort-by" id="sort-by-label">Sort By:</label>
+                <select id="sort-by" name="sort-by">
+                    <option value="Title">Title</option>
+                    <option value="Date">Date</option>
+                </select>
+            </div>
             <div class="todo-item">
                 <div class="todo-top-row">
                     <label class="checkbox"> <input type="checkbox" /> </label>

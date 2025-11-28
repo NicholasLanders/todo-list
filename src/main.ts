@@ -1,22 +1,20 @@
-const todoInput = document.querySelector(".todo-text") as HTMLInputElement;
-const todoItem = document.querySelector(".todo-item") as HTMLElement;
-const main = document.querySelector("main");
+const todoItem = document.querySelector(".todo-item");
+const todoButton = document.querySelector("#todo-button");
+const todoItemEntry = document.querySelector("#todo-entry");
+const listItem = document.querySelector(".list-item");
+const listButton = document.querySelector("#list-button");
+const listItemEntry = document.querySelector("#list-entry");
 
-let clones: HTMLElement[] = [];
-//TODO: Need to think about it all when it comes to deleting elements in different orders of
-//      the list and such
-main?.addEventListener("change", (e) => {
-    const target = e.target;
-    if (!(target instanceof HTMLInputElement)) return;
-    if (!target.classList.contains("todo-text")) return;
+let todoClones: HTMLElement[] = [];
+todoButton?.addEventListener("click", () => {
+    const newTodoItem = todoItem?.cloneNode(true) as HTMLElement;
+    newTodoItem.querySelector<HTMLInputElement>(".todo-text")!.value = "";
+    todoItemEntry?.after(newTodoItem);
+});
 
-    if (target.value !== "") {
-        const newClone = todoItem.cloneNode(true) as HTMLElement;
-        newClone.querySelector<HTMLInputElement>(".todo-text")!.value = "";
-        main?.appendChild(newClone);
-        clones.push(newClone);
-    } else {
-        const lastClone = clones.pop();
-        main?.removeChild(lastClone!);
-    }
+let listClones: HTMLElement[] = [];
+listButton?.addEventListener("click", () => {
+    const newListItem = listItem?.cloneNode(true) as HTMLElement;
+    newListItem.querySelector<HTMLInputElement>(".list-text")!.value = "";
+    listItemEntry?.after(newListItem);
 });

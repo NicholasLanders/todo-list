@@ -9,6 +9,7 @@ let todoClones: HTMLElement[] = [];
 todoButton?.addEventListener("click", () => {
     const newTodoItem = todoItem?.cloneNode(true) as HTMLElement;
     newTodoItem.querySelector<HTMLInputElement>(".todo-text")!.value = "";
+    todoClones.push(newTodoItem);
     todoItemEntry?.after(newTodoItem);
 });
 
@@ -16,5 +17,6 @@ let listClones: HTMLElement[] = [];
 listButton?.addEventListener("click", () => {
     const newListItem = listItem?.cloneNode(true) as HTMLElement;
     newListItem.querySelector<HTMLInputElement>(".list-text")!.value = "";
+    listClones.push(newListItem);
     listItemEntry?.after(newListItem);
 });

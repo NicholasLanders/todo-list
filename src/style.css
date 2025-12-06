@@ -48,6 +48,7 @@ aside {
     left: 5%;
     font-size: var(--standard-font);
     margin-top: 1%;
+    margin-bottom: 2%;
 }
 .list-text {
     background-color: beige;
@@ -102,20 +103,31 @@ main {
     margin-top: 1%;
 }
 .todo-text {
-    width: 85%;
+    flex: 1;
     margin-left: 1%;
+    margin-right: 1%;
     background-color: var(--accent-color);
     color: var(--font-color);
     font-size: var(--standard-font);
 }
+.delete-btn {
+    flex: 0 0 auto;
+    margin-right: 1%;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+    border-radius: 10px;
+    font-size: var(--standard-font);
+    margin-bottom: 1%;
+}
 .checkbox {
+    flex: 0 0 auto;
+    margin-left: 1%;
     display: inline-block;
     min-width: 1em;
     min-height: 1em;
     vertical-align: middle;
     border: 1px solid white;
     border-radius: 20px;
-    margin-left: 1%;
 }
 
 .todo-item:has(.todo-text:placeholder-shown) .checkbox {
@@ -126,6 +138,10 @@ main {
 }
 .todo-item:has(.todo-text:placeholder-shown) .todo-text {
     margin-bottom: 1%;
+}
+.todo-item:has(.todo-text:not(:placeholder-shown)) .delete-btn {
+    margin-bottom: 0%;
+    margin-top: 0.5%;
 }
 /* Over 92% support, so still a little iffy */
 .checkbox:has(input:checked) {

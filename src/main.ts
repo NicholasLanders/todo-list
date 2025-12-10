@@ -5,9 +5,9 @@ const listItem = document.querySelector(".list-item");
 const listButton = document.querySelector("#list-button");
 const listItemEntry = document.querySelector("#list-entry");
 
-const initialDeleteBtn = todoItem?.querySelector(".todo-delete");
-initialDeleteBtn?.addEventListener("click", () => {
-    initialDeleteBtn.parentElement?.parentElement?.remove();
+const initialTodoDelete = todoItem?.querySelector(".todo-delete");
+initialTodoDelete?.addEventListener("click", () => {
+    initialTodoDelete.parentElement?.parentElement?.remove();
 });
 
 let todoClones: HTMLElement[] = [];
@@ -26,10 +26,18 @@ todoButton?.addEventListener("click", () => {
     });
 });
 
-let listClones: HTMLElement[] = [];
+const initialListDelete = listItem?.querySelector(".list-delete");
+initialListDelete?.addEventListener("click", () => {
+    initialListDelete.parentElement?.remove();
+});
+
 listButton?.addEventListener("click", () => {
     const newListItem = listItem?.cloneNode(true) as HTMLElement;
     newListItem.querySelector<HTMLInputElement>(".list-text")!.value = "";
-    listClones.push(newListItem);
     listItemEntry?.after(newListItem);
+
+    const dltBtn = newListItem.querySelector(".list-delete");
+    dltBtn?.addEventListener("click", () => {
+        dltBtn.parentElement?.remove();
+    });
 });

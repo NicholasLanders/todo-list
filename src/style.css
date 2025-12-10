@@ -58,7 +58,13 @@ aside {
     width: 90%;
     font-size: var(--standard-font);
 }
-
+.list-delete {
+    margin-right: 1%;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+    border-radius: 10px;
+    font-size: 1rem;
+}
 main {
     margin-top: 2rem;
     margin-left: var(--standard-buffer);

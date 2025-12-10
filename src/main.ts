@@ -5,7 +5,7 @@ const listItem = document.querySelector(".list-item");
 const listButton = document.querySelector("#list-button");
 const listItemEntry = document.querySelector("#list-entry");
 
-const initialDeleteBtn = todoItem?.querySelector(".delete-btn");
+const initialDeleteBtn = todoItem?.querySelector(".todo-delete");
 initialDeleteBtn?.addEventListener("click", () => {
     initialDeleteBtn.parentElement?.parentElement?.remove();
 });
@@ -17,7 +17,7 @@ todoButton?.addEventListener("click", () => {
     todoClones.push(newTodoItem);
     todoItemEntry?.after(newTodoItem);
 
-    const dltBtn = newTodoItem.querySelector(".delete-btn");
+    const dltBtn = newTodoItem.querySelector(".todo-delete");
     dltBtn?.addEventListener("click", () => {
         dltBtn.parentElement?.parentElement?.remove();
 

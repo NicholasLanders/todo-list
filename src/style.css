@@ -110,7 +110,7 @@ main {
     color: var(--font-color);
     font-size: var(--standard-font);
 }
-.delete-btn {
+.todo-delete {
     flex: 0 0 auto;
     margin-right: 1%;
     background-color: var(--accent-color);
@@ -139,7 +139,7 @@ main {
 .todo-item:has(.todo-text:placeholder-shown) .todo-text {
     margin-bottom: 1%;
 }
-.todo-item:has(.todo-text:not(:placeholder-shown)) .delete-btn {
+.todo-item:has(.todo-text:not(:placeholder-shown)) .todo-delete {
     margin-bottom: 0%;
     margin-top: 0.5%;
 }

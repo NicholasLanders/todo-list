@@ -20,6 +20,9 @@ todoButton?.addEventListener("click", () => {
     const dltBtn = newTodoItem.querySelector(".delete-btn");
     dltBtn?.addEventListener("click", () => {
         dltBtn.parentElement?.parentElement?.remove();
+
+        const btnIndex = todoClones.indexOf(newTodoItem);
+        if (btnIndex !== -1) todoClones.splice(btnIndex, 1);
     });
 });
 

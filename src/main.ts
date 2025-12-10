@@ -5,12 +5,22 @@ const listItem = document.querySelector(".list-item");
 const listButton = document.querySelector("#list-button");
 const listItemEntry = document.querySelector("#list-entry");
 
+const initialDeleteBtn = todoItem?.querySelector(".delete-btn");
+initialDeleteBtn?.addEventListener("click", () => {
+    initialDeleteBtn.parentElement?.parentElement?.remove();
+});
+
 let todoClones: HTMLElement[] = [];
 todoButton?.addEventListener("click", () => {
     const newTodoItem = todoItem?.cloneNode(true) as HTMLElement;
     newTodoItem.querySelector<HTMLInputElement>(".todo-text")!.value = "";
     todoClones.push(newTodoItem);
     todoItemEntry?.after(newTodoItem);
+
+    const dltBtn = newTodoItem.querySelector(".delete-btn");
+    dltBtn?.addEventListener("click", () => {
+        dltBtn.parentElement?.parentElement?.remove();
+    });
 });
 
 let listClones: HTMLElement[] = [];

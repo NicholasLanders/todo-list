@@ -122,7 +122,6 @@ main {
     background-color: var(--accent-color);
     color: var(--font-color);
     border-radius: 10px;
-    font-size: var(--standard-font);
     margin-bottom: 1%;
 }
 .checkbox {
@@ -192,6 +191,9 @@ input[type="checkbox"] {
     .todo-item {
         left: 5%;
         width: 85%;
+    }
+    .todo-delete {
+        font-size: var(--standard-font);
     }
 
     h1 {

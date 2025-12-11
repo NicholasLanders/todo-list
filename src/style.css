@@ -6,6 +6,9 @@
     --standard-font: 1.3rem;
     color: var(--font-color);
     font-family: "Poppins", sans-serif;
+    /* Prevent zoom on mobile devices, as double clicking a button will zoom without it*/
+    touch-action: pan-x pan-y;
+    height: 100%;
 }
 
 html {
@@ -49,6 +52,11 @@ aside {
     font-size: var(--standard-font);
     margin-top: 1%;
     margin-bottom: 2%;
+}
+.list-select {
+    accent-color: var(--accent-color);
+    transform: scale(1.2);
+    margin-bottom: 1%;
 }
 .list-text {
     background-color: beige;

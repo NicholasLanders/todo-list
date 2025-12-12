@@ -34,6 +34,8 @@ initialListDelete?.addEventListener("click", () => {
 listButton?.addEventListener("click", () => {
     const newListItem = listItem?.cloneNode(true) as HTMLElement;
     newListItem.querySelector<HTMLInputElement>(".list-text")!.value = "";
+    const radio = newListItem.querySelector<HTMLInputElement>(".list-select");
+    if (radio) radio.checked = false;
     listItemEntry?.after(newListItem);
 
     const dltBtn = newListItem.querySelector(".list-delete");

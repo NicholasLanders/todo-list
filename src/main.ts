@@ -5,12 +5,6 @@ const listItem = document.querySelector(".list-item");
 const listAddBtn = document.querySelector("#list-add-btn");
 const listControl = document.querySelector("#list-control");
 
-// Delete button on first element
-const firstListDltBtn = listItem?.querySelector(".list-delete");
-firstListDltBtn?.addEventListener("click", () =>
-    deleteList(firstListDltBtn as HTMLElement)
-);
-
 // Using a map to associate the list selector with the different todo lists arrays
 const lists = new Map<HTMLElement, HTMLElement[]>();
 const listSetup = () => {
@@ -20,6 +14,13 @@ const listSetup = () => {
     lists.set(curList as HTMLElement, [todoItem as HTMLElement]);
 };
 listSetup();
+
+// Delete button on first element
+const firstListDltBtn = listItem?.querySelector(".list-delete");
+firstListDltBtn?.addEventListener("click", () =>
+    deleteList(firstListDltBtn as HTMLElement)
+);
+
 //FIXME: For DEBUGGING
 (window as any).lists = lists;
 listAddBtn?.addEventListener("click", () => {
@@ -48,7 +49,6 @@ function deleteList(dltBtn: HTMLElement) {
 // TODO: This will delete all the DOM elements from the screen and replace them with the new list selected
 function changeList(curList: HTMLElement) {}
 
-// Delete button on first element
 const firstTodoDltBtn = todoItem?.querySelector(".todo-delete");
 firstTodoDltBtn?.addEventListener("click", () => {
     const curList = document.querySelector(
@@ -61,7 +61,6 @@ firstTodoDltBtn?.addEventListener("click", () => {
     );
 });
 
-// Setup of the todo portion
 todoAddBtn?.addEventListener("click", () => {
     const newTodoItem = todoItem?.cloneNode(true) as HTMLElement;
     const curList = document.querySelector(

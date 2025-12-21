@@ -1,26 +1,34 @@
 const todoItem = document.querySelector(".todo-item");
-const todoButton = document.querySelector("#todo-button");
-const todoItemEntry = document.querySelector("#todo-entry");
+const todoAddBtn = document.querySelector("#todo-add-btn");
+const todoControl = document.querySelector("#todo-control");
 const listItem = document.querySelector(".list-item");
-const listButton = document.querySelector("#list-button");
-const listItemEntry = document.querySelector("#list-entry");
+const listAddBtn = document.querySelector("#list-add-btn");
+const listControl = document.querySelector("#list-control");
 
 // Delete button on first element
 const firstListDltBtn = listItem?.querySelector(".list-delete");
-firstListDltBtn?.addEventListener("click", () => {
-    firstListDltBtn.parentElement?.remove();
-});
+firstListDltBtn?.addEventListener("click", () =>
+    deleteList(firstListDltBtn as HTMLElement)
+);
 
 // Using a map to associate the list selector with the different todo lists arrays
 const lists = new Map<HTMLElement, HTMLElement[]>();
-// Setup of the list portion that controls which todo list we want
-listButton?.addEventListener("click", () => {
+const listSetup = () => {
+    const curList = document.querySelector(
+        ".list-item input[type='radio']:checked"
+    );
+    lists.set(curList as HTMLElement, [todoItem as HTMLElement]);
+};
+listSetup();
+//FIXME: For DEBUGGING
+(window as any).lists = lists;
+listAddBtn?.addEventListener("click", () => {
     const newListItem = listItem?.cloneNode(true) as HTMLElement;
     lists.set(newListItem, []);
     newListItem.querySelector<HTMLInputElement>(".list-text")!.value = "";
     const radio = newListItem.querySelector<HTMLInputElement>(".list-select");
     if (radio) radio.checked = false;
-    listItemEntry?.after(newListItem);
+    listControl?.after(newListItem);
 
     // TODO: Make a listener on the radio button to change the list each time
     radio?.addEventListener("click", () => {});
@@ -31,39 +39,52 @@ listButton?.addEventListener("click", () => {
     });
 });
 
-// TODO: Need to delete the associated todo list with it
-function deleteList(dltBtn: HTMLElement, listItem: HTMLElement) {}
+function deleteList(dltBtn: HTMLElement) {
+    // TODO: Clear the dom if the current todo items are on the screen
+    dltBtn.parentElement?.remove();
+    lists.delete(listItem as HTMLElement);
+}
+
+// TODO: This will delete all the DOM elements from the screen and replace them with the new list selected
+function changeList(curList: HTMLElement) {}
 
 // Delete button on first element
 const firstTodoDltBtn = todoItem?.querySelector(".todo-delete");
-firstTodoDltBtn?.addEventListener("click", () =>
-    deleteTodo(firstTodoDltBtn as HTMLElement, todoItem as HTMLElement)
-);
-
-// Setup of the todo portion
-let curListItem = document.querySelector(
-    ".list-item input[type='radio']:checked"
-);
-lists.set(curListItem as HTMLElement, [todoItem as HTMLElement]);
-todoButton?.addEventListener("click", () => {
-    const newTodoItem = todoItem?.cloneNode(true) as HTMLElement;
-    newTodoItem.querySelector<HTMLInputElement>(".todo-text")!.value = "";
-    curListItem = document.querySelector(
+firstTodoDltBtn?.addEventListener("click", () => {
+    const curList = document.querySelector(
         ".list-item input[type='radio']:checked"
     );
-    lists.get(curListItem as HTMLElement)?.push(newTodoItem);
-    todoItemEntry?.after(newTodoItem);
-
-    const dltBtn = newTodoItem.querySelector(".todo-delete");
-    dltBtn?.addEventListener("click", () =>
-        deleteTodo(dltBtn as HTMLElement, newTodoItem)
+    deleteTodo(
+        firstTodoDltBtn as HTMLElement,
+        todoItem as HTMLElement,
+        curList as HTMLElement
     );
 });
 
-function deleteTodo(dltBtn: HTMLElement, todoItem: HTMLElement) {
+// Setup of the todo portion
+todoAddBtn?.addEventListener("click", () => {
+    const newTodoItem = todoItem?.cloneNode(true) as HTMLElement;
+    const curList = document.querySelector(
+        ".list-item input[type='radio']:checked"
+    );
+    newTodoItem.querySelector<HTMLInputElement>(".todo-text")!.value = "";
+    lists.get(curList as HTMLElement)?.push(newTodoItem);
+    todoControl?.after(newTodoItem);
+
+    const dltBtn = newTodoItem.querySelector(".todo-delete");
+    dltBtn?.addEventListener("click", () =>
+        deleteTodo(dltBtn as HTMLElement, newTodoItem, curList as HTMLElement)
+    );
+});
+
+function deleteTodo(
+    dltBtn: HTMLElement,
+    todoItem: HTMLElement,
+    curList: HTMLElement
+) {
     dltBtn.parentElement?.parentElement?.remove();
 
-    const curTodoArray = lists.get(curListItem as HTMLElement);
+    const curTodoArray = lists.get(curList as HTMLElement);
     const btnIndex = curTodoArray?.indexOf(todoItem) as number;
     if (btnIndex !== -1) curTodoArray?.splice(btnIndex, 1);
 }

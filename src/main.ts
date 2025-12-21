@@ -1,7 +1,9 @@
 const todoItem = document.querySelector(".todo-item");
+const firstTodoDltBtn = todoItem?.querySelector(".todo-delete");
 const todoAddBtn = document.querySelector("#todo-add-btn");
 const todoControl = document.querySelector("#todo-control");
 const listItem = document.querySelector(".list-item");
+const firstListDltBtn = listItem?.querySelector(".list-delete");
 const listAddBtn = document.querySelector("#list-add-btn");
 const listControl = document.querySelector("#list-control");
 
@@ -15,8 +17,6 @@ const listSetup = () => {
 };
 listSetup();
 
-// Delete button on first element
-const firstListDltBtn = listItem?.querySelector(".list-delete");
 firstListDltBtn?.addEventListener("click", () =>
     deleteList(firstListDltBtn as HTMLElement)
 );
@@ -49,7 +49,6 @@ function deleteList(dltBtn: HTMLElement) {
 // TODO: This will delete all the DOM elements from the screen and replace them with the new list selected
 function changeList(curList: HTMLElement) {}
 
-const firstTodoDltBtn = todoItem?.querySelector(".todo-delete");
 firstTodoDltBtn?.addEventListener("click", () => {
     const curList = document.querySelector(
         ".list-item input[type='radio']:checked"

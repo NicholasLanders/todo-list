@@ -5,13 +5,15 @@ const listItem = document.querySelector(".list-item");
 const listButton = document.querySelector("#list-button");
 const listItemEntry = document.querySelector("#list-entry");
 
-//Delete button on first element
+// Delete button on first element
 const firstListDltBtn = listItem?.querySelector(".list-delete");
 firstListDltBtn?.addEventListener("click", () => {
     firstListDltBtn.parentElement?.remove();
 });
 
+// Using a map to associate the list selector with the different todo lists arrays
 const lists = new Map<HTMLElement, HTMLElement[]>();
+// Setup of the list portion that controls which todo list we want
 listButton?.addEventListener("click", () => {
     const newListItem = listItem?.cloneNode(true) as HTMLElement;
     lists.set(newListItem, []);
@@ -20,21 +22,25 @@ listButton?.addEventListener("click", () => {
     if (radio) radio.checked = false;
     listItemEntry?.after(newListItem);
 
+    // TODO: Make a listener on the radio button to change the list each time
+    radio?.addEventListener("click", () => {});
+
     const dltBtn = newListItem.querySelector(".list-delete");
     dltBtn?.addEventListener("click", () => {
         dltBtn.parentElement?.remove();
     });
 });
 
-//TODO: Need to delete the associated todo list with it
+// TODO: Need to delete the associated todo list with it
 function deleteList(dltBtn: HTMLElement, listItem: HTMLElement) {}
 
-//Delete button on first element
+// Delete button on first element
 const firstTodoDltBtn = todoItem?.querySelector(".todo-delete");
 firstTodoDltBtn?.addEventListener("click", () =>
     deleteTodo(firstTodoDltBtn as HTMLElement, todoItem as HTMLElement)
 );
 
+// Setup of the todo portion
 let curListItem = document.querySelector(
     ".list-item input[type='radio']:checked"
 );

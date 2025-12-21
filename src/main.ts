@@ -6,9 +6,9 @@ const listButton = document.querySelector("#list-button");
 const listItemEntry = document.querySelector("#list-entry");
 
 //Delete button on first element
-const initialListDelete = listItem?.querySelector(".list-delete");
-initialListDelete?.addEventListener("click", () => {
-    initialListDelete.parentElement?.remove();
+const firstListDltBtn = listItem?.querySelector(".list-delete");
+firstListDltBtn?.addEventListener("click", () => {
+    firstListDltBtn.parentElement?.remove();
 });
 
 const lists = new Map<HTMLElement, HTMLElement[]>();
@@ -20,12 +20,14 @@ listButton?.addEventListener("click", () => {
     if (radio) radio.checked = false;
     listItemEntry?.after(newListItem);
 
-    //TODO: Need to delete the associated list when it is deleted
     const dltBtn = newListItem.querySelector(".list-delete");
     dltBtn?.addEventListener("click", () => {
         dltBtn.parentElement?.remove();
     });
 });
+
+//TODO: Need to delete the associated todo list with it
+function deleteList(dltBtn: HTMLElement, listItem: HTMLElement) {}
 
 //Delete button on first element
 const firstTodoDltBtn = todoItem?.querySelector(".todo-delete");
@@ -52,10 +54,10 @@ todoButton?.addEventListener("click", () => {
     );
 });
 
-function deleteTodo(dltBtn: HTMLElement, newTodoItem: HTMLElement) {
+function deleteTodo(dltBtn: HTMLElement, todoItem: HTMLElement) {
     dltBtn.parentElement?.parentElement?.remove();
 
     const curTodoArray = lists.get(curListItem as HTMLElement);
-    const btnIndex = curTodoArray?.indexOf(newTodoItem) as number;
+    const btnIndex = curTodoArray?.indexOf(todoItem) as number;
     if (btnIndex !== -1) curTodoArray?.splice(btnIndex, 1);
 }
